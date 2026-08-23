@@ -31,8 +31,9 @@ outcomes, read directly from message payloads in the trace (`traces/baseline.jso
 | 5 | — | 15/19 → aborted |
 
 - Baseline: consensus reached on round 3 of 5 (68.4% agreement cleared the 66.7% bar).
-- quorum=0.9: **never committed** — best round hit 78.9% agreement, short of the 90% (18/19)
-  bar — the group exhausted all 5 rounds with no decision.
+- quorum=0.9: **never committed** — best round (round 5) hit 15/19 (78.9%), three votes short
+  of the 18/19 (94.7%) needed to clear the 90% bar — the group exhausted all 5 rounds with no
+  decision.
 - `message_count` roughly doubled (342 → 570) since the leader kept retrying.
 
 ## Investigation — the surprise
