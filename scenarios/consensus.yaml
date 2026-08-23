@@ -33,7 +33,7 @@ task:
   type: consensus
   config:
     rounds: 5
-    quorum: 0.667
+    quorum: 0.9
 
 failures:
   message_drop: 0.0
