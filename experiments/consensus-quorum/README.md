@@ -88,19 +88,21 @@ reading the validator source.
 ## Tools and help used
 
 I used Claude Code, but not as a one-off chatbot — I run my own multi-agent orchestration
-system on top of it (a set of workflow skills plus specialized review subagents I've built for
-real engineering work). For this exercise I ran it through my `/spec` workflow to structure the
-exploration into checkpoints instead of one long unstructured session, and dispatched one
-narrow-scope "scout" subagent to read all six built-in scenario configs and report back what
-each one simulates before I committed to picking one. I deliberately did *not* invoke the
-heavier review agents that system has for production code (security review, cross-model
-critique, architecture review) — this is a 60–120 minute onboarding exercise, not shipping
-code, and reaching for that machinery here would have been the overbuilding this exercise
-explicitly warns against. Every command (`nest doctor/run/inspect/report`, the validator run,
-the source reads) executed live in my terminal; I reviewed each result before it went in this
-writeup, and the `success_rate` / `deal_rate` finding above came from me flagging the flat
-number as suspicious and asking to check the source, not from an AI narrating a plausible-
-sounding explanation.
+system on top of it (workflow skills plus specialized review subagents I've built for real
+engineering work). I ran this exercise through my `/spec` workflow to structure the exploration
+into checkpoints instead of one long unstructured session, and dispatched one narrow-scope
+"scout" subagent to read all six built-in scenario configs and report back what each one
+simulates before I committed to picking one. From there I implemented directly — editing the
+config, running the CLI, reading source, committing — rather than routing it through my `/build`
+pipeline, which would spin up separate implementer and test-writer subagents plus a formal
+review gate. A single config line and a short README didn't need that machinery, and reaching
+for it would have been the overbuilding this exercise explicitly warns against. I deliberately
+also skipped the heavier review agents that system has for production code (security review,
+cross-model critique, architecture review) for the same reason. Every command (`nest
+doctor/run/inspect/report`, the validator run, the source reads) executed live in my terminal; I
+reviewed each result before it went in this writeup, and the `success_rate` / `deal_rate`
+finding above came from me flagging the flat number as suspicious and asking to check the
+source, not from an AI narrating a plausible-sounding explanation.
 
 ## What would you build next for NANDA Town?
 
